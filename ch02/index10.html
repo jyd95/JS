@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body>
+    <!--이벤트 위임에 활용-->
+   <ul id = "myList">
+    <li><button>버튼1</button></li>
+    <li><button>버튼2</button></li>
+    <li><button>버튼3</button></li>
+   </ul>
+   
+   <script>
+      // 버튼에 각각 이벤트 리스너를 등록 하자.
+      
+      document.getElementById("myList").addEventListener('click', function(event){
+        console.log(event.target);
+        // 해당하는 타겟의 textContent 를 가지고 오고 싶다면
+        console.log(event.target.textContent);
+        // 어떤 버튼이 눌러졌는지 alert 창을 띄워보자
+        //let a = event.target.textContent;
+        //alert(a);
+        // 해당 버튼의 컨텐츠를 영어로 수정해 보자.
+        //event.target.textContent="button"; 
+        // 버튼 2의 글자만 수정해 보자.
+        let a = event.target.textContent;
+        if(a == '버튼2'){
+          event.target.textContent = "button2";
+        }
+      });
+
+
+
+
+   </script>
+
+  </body>
+</html>

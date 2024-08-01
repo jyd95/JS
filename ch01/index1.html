@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>index1.html</h2>
+    <div>
+        <p><span>자바스크립트 형변환에 대해 살펴 보자.</span></p>
+    </div>
+
+    <script>
+        console.log(hNum);
+        const num = 5;
+        const str = "10";
+
+        const result = num + str;
+        console.log(result); // 5 + "10" ==> 덧셈 연산  -> 숫자를 문자열로 변환 -> 결과 : "510"
+        console.log("----------------------------------");
+
+
+
+        const num1 = 10;
+        const str1 = "2";
+
+        
+        const multiplyResult = num1 * str1; // 곱셈 연산 -> 문자열을 숫자로 변환
+        console.log(multiplyResult);
+        console.log("----------------------------------");
+        
+        const divideResult = num1 / str1; // 나누기 연산 -> 문자열을 숫자로 변환
+        console.log(divideResult);
+        console.log("----------------------------------");
+
+        const moResult = num1 % str1; // 나머지 연산 -> 문자열을 숫자로 변환
+        console.log(moResult);
+
+
+        var hNum = 10; // var = 호이스팅 동작을 하는 키워드
+        console.log(hNum);
+
+
+    </script>
+</body>
+</html>
