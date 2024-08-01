@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex-container{
+        display: flex;
+        height: 200px;
+        /* overflow:hidden = 이미지가 지정 크기를 벗어나면 숨김처리 */
+        overflow: hidden;
+    }
+
+    .flex-item{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    
+    .flex-item img{
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .flex-item img.active{
+        opacity: 1;
+        visibility: visible;
+    }
+</style>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">
+            <button class="button prev-btn">prev</button>
+        </div>
+        <div class="flex-item">
+            <img src="../ch01/images/images01.jpg" class="active" alt="">
+            <img src="../ch01/images/images02.jpg" alt="">
+            <img src="../ch01/images/images03.jpg" alt="">
+            <img src="../ch01/images/images04.jpg" alt="">
+            <img src="../ch01/images/images05.jpg" alt="">
+            <img src="../ch01/images/images06.jpg" alt="">
+            <img src="../ch01/images/images07.jpg" alt="">
+            <img src="../ch01/images/images08.jpg" alt="">
+            <img src="../ch01/images/images09.jpg" alt="">
+            <img src="../ch01/images/images10.jpg" alt="">
+            <img src="../ch01/images/images10.jpg" alt="">
+            <img src="../ch01/images/images11.jpg" alt="">
+            <img src="../ch01/images/images12.jpg" alt="">
+            <img src="../ch01/images/images13.jpg" alt="">
+            <img src="../ch01/images/images14.jpg" alt="">
+            <img src="../ch01/images/images15.jpg" alt="">
+            <img src="../ch01/images/images16.jpg" alt="">
+            <img src="../ch01/images/images17.jpg" alt="">
+            <img src="../ch01/images/images18.jpg" alt="">
+            <img src="../ch01/images/images19.jpg" alt="">
+            <img src="../ch01/images/images20.jpg" alt="">
+            <img src="../ch01/images/images21.jpg" alt="">
+            <img src="../ch01/images/images22.jpg" alt="">
+            <img src="../ch01/images/images23.jpg" alt="">
+            <img src="../ch01/images/images24.jpg" alt="">
+            <img src="../ch01/images/images25.jpg" alt="">
+            <img src="../ch01/images/images26.jpg" alt="">
+            <img src="../ch01/images/images27.jpg" alt="">
+            <img src="../ch01/images/images28.jpg" alt="">
+            <img src="../ch01/images/images29.jpg" alt="">
+            <img src="../ch01/images/images30.jpg" alt="">
+            <img src="../ch01/images/images31.jpg" alt="">
+        </div>
+
+        <div class="flex-item">
+            <button class="button next-btn">next</button>
+        </div>
+    </div>
+
+    <script>
+        let images = document.querySelectorAll(".flex-item img");
+        let curruntIndex = 1;
+
+        // 방어적 코드 작성
+
+        document.querySelector(".prev-btn").addEventListener("click", ()=>{
+
+            images[curruntIndex].classList.remove("active");
+
+           curruntIndex--;
+
+           // 방어적 코드 작성 --> 0에서 -1로 가면 오류 발생
+           if(curruntIndex < 0 ){
+            curruntIndex = images.length-1;
+           }
+           images[curruntIndex].classList.add("active");
+           
+        });
+
+        document.querySelector(".next-btn").addEventListener("click", ()=>{
+
+            images[curruntIndex].classList.remove("active");
+
+            curruntIndex++;
+            // index 는 length -1
+            let a = images.length-1;
+            if(curruntIndex > a){
+            curruntIndex = 0;
+           }
+           images[curruntIndex].classList.add("active");
+           console.log("뒤로 가기");
+        });
+
+    </script>
+</body>
+</html>
